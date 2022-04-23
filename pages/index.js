@@ -16,6 +16,13 @@ export default function Home() {
           let me LEAVE
         </h1>
 
+        <div className={styles.circle}>
+          <div className={styles.tick}></div>
+          <div className={styles.tick}></div>
+          <div className={styles.tick}></div>
+          <div className={styles.tick}></div>
+        </div>
+
         <p className={styles.description} style={{display: 'flex', flexDirection: 'column'}}>
           hello, and welcome to let me leave.
           <br />
