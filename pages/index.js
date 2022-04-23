@@ -12,16 +12,72 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          let me LEAVE
-        </h1>
-
+{/*
+  - the inner circle can contain a maximum number of 
+    events (dependent on media breakpoints, as 
+    specified by https://getbootstrap.com/docs/5.0/layout/breakpoints/
+    - Each size of screen will be a different class 
+      within
+    - 3 for x-small screens (<576px)
+    - 4 for small screens (>=576px)
+    - 5 for medium screens (>=768px)
+    - 6 for large screens (>=992px)
+    - 7 for xl and xxl (>-1200px)
+  - events will animate to screen, first starting with
+    the inner circle and then finishing with the outer
+    circle
+    - inner events will be based on the user's interest
+      if they are logged into their account
+    - outer events will be the same, but will have a
+      larger radius for the distance to the event from
+      the user
+  - there should be a +/- button in the bottom right
+    corner of the screen that increases/decreases the
+    range of events seen based on the distance from the
+    user
+  - there should be a slider in the top left corner of
+    the screen that allows users to toggle the
+    interests that the event-finder algorithm should 
+    primarily focus on
+  - pressing the logo in the middle of the screen should
+    open the explanation of what our app is, how it
+    works, and why you want to use it
+  - pressing the name of the city below the logo should
+    allow the user to toggle cities (for when we have
+    multiple cities added into the system)
+  - after the user creates an account, they will be able
+    to input their preferences for events that appear on
+    their page
+  - the user should be able to edit their account
+    information (e.g. able to change their address, 
+    phone, email, or payment info)
+  - pressing on an event should open a full-screen modal
+    that neatly presents the information about the event
+    in a way that is easy for the user to understand:
+    - the event is able to have a flyer
+    - the event must have:
+      - a date or date range
+      - a title
+      - a location
+      - a description
+        - who it is hosted by
+        - what will be done at the event
+        - a count of how many said they'd attend
+        - a count of how many said maybe
+      - a price to attend the event (optional)
+      - a host rating, showing how well people rate the host for 
+        their typical events
+      - additional info tbd
+*/}
         <div className={styles.circle}>
           <div className={styles.tick}></div>
           <div className={styles.tick}></div>
           <div className={styles.tick}></div>
           <div className={styles.tick}></div>
         </div>
+        <h1 className={styles.title}>
+          let me LEAVE
+        </h1>
 
         <p className={styles.description} style={{display: 'flex', flexDirection: 'column'}}>
           hello, and welcome to let me leave.
