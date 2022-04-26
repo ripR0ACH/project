@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+  
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -11,45 +11,37 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
 {/*
 ==========================
-        FUNCTIONS
+    CLASSES & FUNCTIONS
 ==========================
 
 toggleAbout(*state)
   - pressing the logo in the middle of the screen should
     open the explanation of what our app is, how it
     works, and why you want to use it
-findEventPreferences(*user)
-  - after the user creates an account, they will be able
-    to input their preferences for events that appear on
-    their page
-makeAccount(*user_info)
-  - the user should be able to create an account that
-    contains information related to the user. Information
-    to be collected:
-    - their full name
-    - their email address
-    - their phone number
-    - their event preferences
-    - their payment information **optional**
-editAccount(*user)
-  - the user should be able to edit their account
-    information (e.g. able to change their address, 
-    phone, email, or payment info)
-deleteAccount(*user)
-  - the user's account will be deleted
+
+class: Account
+  init(name, email, num, evntPref, payment)
+    - while the user creates an account, they will be able
+      to input their preferences for events that appear on
+      their page
+  private - getName(), setName(new)
+  private - getEmail(), setEmail(new)
+  private - getPhoneNumber(), setPhoneNumber(new)
+  private - getPayment(), setPayment(new)
+  public - editAccount(), deleteAccount() 
+  public - addFriend(), rejectFriendRequest(), unaddFriend(), getFriends()
+  public - postEvent(Event), unpostEvent(Event), editEvent(Event)
+
 toggleInterests(*user_interests)
   - there should be a slider in the top left corner of
     the screen that allows users to toggle the
     interests that the event-finder algorithm should 
     primarily focus on
-
-displayEvent(*event)
-  - pressing on an event should open a full-screen modal
-  that neatly presents the information about the event
-  in a way that is easy for the user to understand:
+class: Event
+  init(date, title, location, description, host, attending, indecisive, price, host_rating, flyer, **additional_info)
     - the event is able to have a flyer
     - the event must have:
       - a date or date range
@@ -64,8 +56,27 @@ displayEvent(*event)
       - a host rating, showing how well people rate the host for 
       their typical events
       - additional info tbd
+  private - getDate(), setDate(new)
+  private - getTitle(), setTitle(new)
+  private - getLocation(), setLocation(new)
+  private - getDescription, setDescription(new)
+  private - getHost(), setHost(new)
+  private - getAttending(), addAttending(new), removeAttending(new)
+  private - getIndecisive(), addIndecisive(new), removeIndecisive(new)
+  private - getPrice(), setPrice(new)
+  private - getHostRating(*Account), setHostRating(*Account, new)
+  private - getFlyer(), setFlyer(new)
+  public - delayEvent(), cancelEvent(), endEvent()
+    - delay, cancel, or end event respectively
+      - if an event is cancelled, all payment transactions associated with the event are refunded
+  public - 
+  
+displayEvent(*event)
+  - pressing on an event should open a full-screen modal
+  that neatly presents the information about the event
+  in a way that is easy for the user to understand
 countEvents(*screensize): 
-  returns number of events based on screen size
+  returns number of events to be rendered based on screen size
   - the inner circle can contain a maximum number of 
     events (dependent on media breakpoints, as 
     specified by https://getbootstrap.com/docs/5.0/layout/breakpoints/)
@@ -77,8 +88,7 @@ countEvents(*screensize):
     - 5 for medium screens (>=768px)
     - 6 for large screens (>=992px)
     - 7 for xl and xxl (>=1200px)
-
-animateEvents(*event_count)
+animateEvents(*event_count, events)
   will load and animate events onto screen based on the 
   number of events returned in countEvents()
   - events will animate to screen, first starting with
@@ -106,25 +116,16 @@ changeEventDistanceFilter(*current_location)
   **- pressing the name of the city below the logo should
     allow the user to toggle cities (for when we have
     multiple cities added into the system)
-*/}
-        <div className={styles.circle}>
-          <div className={styles.tick}></div>
-          <div className={styles.tick}></div>
-          <div className={styles.tick}></div>
-          <div className={styles.tick}></div>
-        </div>
-        <h1 className={styles.title}>
-          let me LEAVE
-        </h1>
 
-        <p className={styles.description} style={{display: 'flex', flexDirection: 'column'}}>
-          hello, and welcome to let me leave.
-          <br />
-          <br />
-          <button style={{display: 'block', alignSelf: 'center' }}>Sign Up</button>
-          <br/>
-          <button style={{ display: 'block', alignSelf: 'center' }}>Log In</button>
-        </p>
+need to create an area for admin that will allow them to monitor
+key statistics about events, users, and application performance.
+*/}
+        {/* <div className={styles.circle}>
+          <div className={styles.tick}></div>
+          <div className={styles.tick}></div>
+          <div className={styles.tick}></div>
+          <div className={styles.tick}></div>
+        </div> */}
       </main>
 
       <footer className={styles.footer}>
